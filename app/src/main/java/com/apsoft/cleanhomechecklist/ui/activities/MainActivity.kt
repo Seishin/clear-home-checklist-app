@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
 
     lateinit var pagesAdapter: PagesAdapter
 
-    private val component: MainComponent by lazy {
+    val component: MainComponent by lazy {
         app.component.plus(MainModule(this))
     }
 

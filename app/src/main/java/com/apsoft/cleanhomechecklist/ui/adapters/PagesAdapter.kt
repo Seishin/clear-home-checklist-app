@@ -3,7 +3,7 @@ package com.apsoft.cleanhomechecklist.ui.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.apsoft.cleanhomechecklist.ui.PageFragment
+import com.apsoft.cleanhomechecklist.ui.fragments.PageFragment
 
 
 /**

@@ -9,10 +9,12 @@ package com.apsoft.cleanhomechecklist.config
  */
 class Constants {
 
-    companion object Pages {
-        val KEY_TYPE = "type"
-        val DAILY = 0
-        val WEEKLY = 1
-        val MONTHLY = 2
+    companion object {
+        val PAGES_KEY_TYPE = "type"
+        val PAGES_DAILY = 0
+        val PAGES_WEEKLY = 1
+        val PAGES_MONTHLY = 2
+
+        const val SHARED_PREFS_FILE_NAME = "chc_prefs"
     }
 }

@@ -19,13 +19,5 @@ class MainModule(private val activity: MainActivity) {
 
     @Provides
     @ActivityScope
-    fun provideAppContext(): Context {
-        return activity.applicationContext
-    }
-
-    @Provides
-    @ActivityScope
-    fun provideDatabase(context: Context): AppDatabase {
-        return AppDatabase.getDatabase(context)!!
-    }
+    fun provideAppContext(): Context = activity.applicationContext
 }

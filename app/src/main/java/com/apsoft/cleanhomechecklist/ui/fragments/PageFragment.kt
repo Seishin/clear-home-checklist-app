@@ -1,6 +1,5 @@
-package com.apsoft.cleanhomechecklist.ui
+package com.apsoft.cleanhomechecklist.ui.fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,10 +7,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.bindView
 import com.apsoft.cleanhomechecklist.R
 import com.apsoft.cleanhomechecklist.config.Constants
 import com.apsoft.cleanhomechecklist.datasource.models.Task
+import com.apsoft.cleanhomechecklist.di.components.ChecklistPageComponent
+import com.apsoft.cleanhomechecklist.di.modules.ChecklistPageModule
+import com.apsoft.cleanhomechecklist.ui.activities.MainActivity
 import com.apsoft.cleanhomechecklist.ui.adapters.TasksAdapter
 import com.xw.repo.BubbleSeekBar
 
@@ -23,6 +24,7 @@ import com.xw.repo.BubbleSeekBar
  ** APSoft 2017
  */
 class PageFragment: Fragment() {
+    private val TAG: String = PageFragment::class.java.simpleName
 
     lateinit var contentView: View
 
@@ -33,12 +35,16 @@ class PageFragment: Fragment() {
 
     lateinit var tasksAdapter: TasksAdapter
 
+    val component: ChecklistPageComponent by lazy {
+        (activity as MainActivity).component.plus(ChecklistPageModule(this))
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(type: Int): PageFragment {
             val fragment = PageFragment()
             val args = Bundle()
-            args.putInt(Constants.Pages.KEY_TYPE, type)
+            args.putInt(Constants.PAGES_KEY_TYPE, type)
             fragment.arguments = args
             return fragment
         }
@@ -46,29 +52,27 @@ class PageFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         contentView = inflater!!.inflate(R.layout.fragment_page, container, false)
+        component.inject(this)
 
-        when (arguments.getInt(Constants.Pages.KEY_TYPE)) {
-            Constants.Pages.DAILY -> {
-                data.add(Task("Sweep Floor", 0))
-                data.add(Task("Wipe Down Counters", 0))
-                data.add(Task("Wipe Down Stovetop", 0))
-                data.add(Task("Empty Dishwasher", 0))
-                data.add(Task("Load Dishwasher", 0))
+        component.database().taskRepository().getAll().subscribe({
+            val data = ArrayList<Task>(0)
+            for (task in it) {
+                data.add(task)
+            }
+            populateData(data)
+        })
+
+        when (arguments.getInt(Constants.PAGES_KEY_TYPE)) {
+            Constants.PAGES_DAILY -> {
+//                TODO("DAILY TASKS")
             }
 
-            Constants.Pages.WEEKLY -> {
-                data.add(Task("Dust", 1))
-                data.add(Task("Vacuum Cleaner", 1))
-                data.add(Task("Wipe Down Cabinets", 1))
-                data.add(Task("Wipe Down Appliances", 1))
+            Constants.PAGES_WEEKLY -> {
+//                TODO("WEEKLY TASKS")
             }
 
-            Constants.Pages.MONTHLY -> {
-                data.add(Task("Dust moldings", 2))
-                data.add(Task("Dust ceiling fans", 2))
-                data.add(Task("Clean blinds & curtains", 2))
-                data.add(Task("Clean inside of oven", 2))
-                data.add(Task("Wash inside of trash cans", 2))
+            Constants.PAGES_MONTHLY -> {
+//                TODO("PAGES TASKS")
             }
         }
 
@@ -85,7 +89,9 @@ class PageFragment: Fragment() {
 
         tasksList.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         tasksList.adapter = tasksAdapter
+    }
 
+    private fun populateData(data: ArrayList<Task>) {
         tasksAdapter.setData(data)
     }
 }
