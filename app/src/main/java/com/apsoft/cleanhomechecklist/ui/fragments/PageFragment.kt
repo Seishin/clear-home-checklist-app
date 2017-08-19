@@ -18,7 +18,6 @@ import com.apsoft.cleanhomechecklist.mvp.views.TasksContractor
 import com.apsoft.cleanhomechecklist.ui.activities.MainActivity
 import com.apsoft.cleanhomechecklist.ui.adapters.TasksAdapter
 import com.xw.repo.BubbleSeekBar
-import javax.inject.Inject
 
 
 /**

@@ -3,6 +3,7 @@ package com.apsoft.cleanhomechecklist.di.components
 import com.apsoft.cleanhomechecklist.App
 import com.apsoft.cleanhomechecklist.di.modules.AppModule
 import com.apsoft.cleanhomechecklist.di.modules.MainModule
+import com.apsoft.cleanhomechecklist.di.modules.SplashModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -18,5 +19,6 @@ import javax.inject.Singleton
 interface AppComponent {
     fun inject(app: App)
 
+    fun plus(splashModule: SplashModule): SplashComponent
     fun plus(mainModule: MainModule): MainComponent
 }

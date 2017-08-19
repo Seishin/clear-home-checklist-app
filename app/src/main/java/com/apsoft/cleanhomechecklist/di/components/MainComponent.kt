@@ -6,7 +6,6 @@ import com.apsoft.cleanhomechecklist.di.modules.ChecklistPageModule
 import com.apsoft.cleanhomechecklist.di.modules.MainModule
 import com.apsoft.cleanhomechecklist.di.scopes.ActivityScope
 import com.apsoft.cleanhomechecklist.ui.activities.MainActivity
-import com.apsoft.cleanhomechecklist.ui.fragments.PageFragment
 import dagger.Subcomponent
 
 

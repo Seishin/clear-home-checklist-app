@@ -9,6 +9,6 @@ import com.apsoft.cleanhomechecklist.datasource.models.Task
  **
  ** APSoft 2017
  */
-interface TasksContractor: Contractor {
-    fun onRequestDataReceived(data: ArrayList<Task>)
+interface SplashContractor: Contractor {
+    fun onInsertionSucceeds()
 }

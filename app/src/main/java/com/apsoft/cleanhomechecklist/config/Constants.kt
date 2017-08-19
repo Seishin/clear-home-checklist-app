@@ -11,10 +11,8 @@ class Constants {
 
     companion object {
         val PAGES_KEY_TYPE = "type"
-        val TYPE_PAGE_DAILY = 0
-        val TYPE_PAGE_WEEKLY = 1
-        val TYPE_PAGE_MONTHLY = 2
 
         const val SHARED_PREFS_FILE_NAME = "chc_prefs"
+        const val KEY_FIRST_START = "first_start"
     }
 }

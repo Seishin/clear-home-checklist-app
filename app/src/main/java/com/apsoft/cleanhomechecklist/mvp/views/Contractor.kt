@@ -9,12 +9,10 @@ import android.content.Context
  **
  ** APSoft 2017
  */
-interface Contractor<E> {
+interface Contractor {
     fun onRequestStarted()
     fun onRequestCompleted()
     fun onError(message: String)
-
-    fun onRequestDataReceived(data: ArrayList<E>)
 
     fun getAppContext(): Context
 }
