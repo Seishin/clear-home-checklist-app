@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CleanHomeChecklist</string>
+
+    <!-- Tabs -->
+    <string name="tab_title_daily">Daily</string>
+    <string name="tab_title_weekly">Weekly</string>
+    <string name="tab_title_monthly">Monthly</string>
+</resources>

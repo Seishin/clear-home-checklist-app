@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="titles">
+        <item>@string/tab_title_daily</item>
+        <item>@string/tab_title_weekly</item>
+        <item>@string/tab_title_monthly</item>
+    </string-array>
+</resources>
