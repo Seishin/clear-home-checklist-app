@@ -11,10 +11,10 @@ import com.gigamole.navigationtabstrip.NavigationTabStrip
 
 class MainActivity : BaseActivity() {
 
-    val tabs: NavigationTabStrip by bindView(R.id.tabs)
-    val viewPager: ViewPager by bindView(R.id.pager)
+    private val tabs: NavigationTabStrip by bindView(R.id.tabs)
+    private val viewPager: ViewPager by bindView(R.id.pager)
 
-    lateinit var pagesAdapter: PagesAdapter
+    private lateinit var pagesAdapter: PagesAdapter
 
     val component: MainComponent by lazy {
         app.component.plus(MainModule(this))

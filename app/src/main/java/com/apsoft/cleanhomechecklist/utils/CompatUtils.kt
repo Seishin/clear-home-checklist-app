@@ -2,12 +2,12 @@ package com.apsoft.cleanhomechecklist.utils
 
 import android.content.Context
 
-
 /**
- ** Created by Atanas Dimitrov <seishin90@yandex.ru>
- ** on 8/18/17.
- **
- ** APSoft 2017
+ * Author : andy
+ * Date   : 16/1/21 11:28
+ * Email  : andyxialm@gmail.com
+ * Github : github.com/andyxialm
+ * Description : A custom CheckBox with animation for Android
  */
 class CompatUtils {
     companion object {

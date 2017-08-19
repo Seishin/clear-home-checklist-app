@@ -1,5 +1,6 @@
 package com.apsoft.cleanhomechecklist.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -7,14 +8,17 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.apsoft.cleanhomechecklist.R
 import com.apsoft.cleanhomechecklist.config.Constants
 import com.apsoft.cleanhomechecklist.datasource.models.Task
 import com.apsoft.cleanhomechecklist.di.components.ChecklistPageComponent
 import com.apsoft.cleanhomechecklist.di.modules.ChecklistPageModule
+import com.apsoft.cleanhomechecklist.mvp.views.TasksContractor
 import com.apsoft.cleanhomechecklist.ui.activities.MainActivity
 import com.apsoft.cleanhomechecklist.ui.adapters.TasksAdapter
 import com.xw.repo.BubbleSeekBar
+import javax.inject.Inject
 
 
 /**
@@ -23,16 +27,13 @@ import com.xw.repo.BubbleSeekBar
  **
  ** APSoft 2017
  */
-class PageFragment: Fragment() {
+class PageFragment: Fragment(), TasksContractor {
     private val TAG: String = PageFragment::class.java.simpleName
 
-    lateinit var contentView: View
-
-    val data: ArrayList<Task> = ArrayList<Task>(0)
+    private lateinit var contentView: View
 
     lateinit var progressBar: BubbleSeekBar
     lateinit var tasksList: RecyclerView
-
     lateinit var tasksAdapter: TasksAdapter
 
     val component: ChecklistPageComponent by lazy {
@@ -54,29 +55,9 @@ class PageFragment: Fragment() {
         contentView = inflater!!.inflate(R.layout.fragment_page, container, false)
         component.inject(this)
 
-        component.database().taskRepository().getAll().subscribe({
-            val data = ArrayList<Task>(0)
-            for (task in it) {
-                data.add(task)
-            }
-            populateData(data)
-        })
-
-        when (arguments.getInt(Constants.PAGES_KEY_TYPE)) {
-            Constants.PAGES_DAILY -> {
-//                TODO("DAILY TASKS")
-            }
-
-            Constants.PAGES_WEEKLY -> {
-//                TODO("WEEKLY TASKS")
-            }
-
-            Constants.PAGES_MONTHLY -> {
-//                TODO("PAGES TASKS")
-            }
-        }
-
         initUI()
+
+        component.presenter().requestAllTasks()
 
         return contentView
     }
@@ -91,7 +72,24 @@ class PageFragment: Fragment() {
         tasksList.adapter = tasksAdapter
     }
 
-    private fun populateData(data: ArrayList<Task>) {
-        tasksAdapter.setData(data)
+    override fun onRequestStarted() {
+        Toast.makeText(activity, "Request started...", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRequestCompleted() {
+        Toast.makeText(activity, "Request completed...", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onError(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRequestDataReceived(data: ArrayList<Task>) {
+        val filteredData: List<Task> = data.filter { it.type == arguments.getInt(Constants.PAGES_KEY_TYPE) }
+        tasksAdapter.setData(filteredData as ArrayList<Task>)
+    }
+
+    override fun getAppContext(): Context {
+        return activity.applicationContext
     }
 }
