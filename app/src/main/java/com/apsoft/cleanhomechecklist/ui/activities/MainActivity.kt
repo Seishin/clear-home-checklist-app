@@ -10,6 +10,7 @@ import com.apsoft.cleanhomechecklist.ui.adapters.PagesAdapter
 import com.gigamole.navigationtabstrip.NavigationTabStrip
 
 class MainActivity : BaseActivity() {
+    private val TAG = MainActivity::class.java.simpleName
 
     private val tabs: NavigationTabStrip by bindView(R.id.tabs)
     private val viewPager: ViewPager by bindView(R.id.pager)

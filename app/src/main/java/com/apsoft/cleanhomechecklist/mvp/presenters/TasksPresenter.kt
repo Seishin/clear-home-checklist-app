@@ -26,7 +26,7 @@ class TasksPresenter @Inject constructor(var contractor: Contractor, var model: 
     }
 
     fun populateInitialData() {
-        model.populateInitialData()
+        model.populateInitialData(contractor.getAppContext())
         contractor.onRequestCompleted()
     }
 }

@@ -1,8 +1,7 @@
 package com.apsoft.cleanhomechecklist.datasource.repositories
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
+import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import com.apsoft.cleanhomechecklist.datasource.Repository
 import com.apsoft.cleanhomechecklist.datasource.models.Task
 import io.reactivex.Flowable
@@ -28,6 +27,6 @@ abstract class TasksRepository: Repository<Task> {
     @Query("SELECT * FROM $TABLE_NAME")
     abstract fun getAll(): Flowable<Array<Task>>
 
-    @Insert
+    @Insert(onConflict = REPLACE)
     abstract fun insertAll(initialData: List<Task>)
 }
