@@ -8,8 +8,7 @@
         android:id="@+id/list_tasks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/progress_bar"
-        android:layout_margin="16dp"/>
+        android:layout_above="@+id/progress_bar"/>
 
     <com.xw.repo.BubbleSeekBar
         android:id="@+id/progress_bar"

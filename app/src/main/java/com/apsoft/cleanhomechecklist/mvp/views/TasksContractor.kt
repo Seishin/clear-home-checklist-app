@@ -1,6 +1,6 @@
 package com.apsoft.cleanhomechecklist.mvp.views
 
-import com.apsoft.cleanhomechecklist.datasource.models.Task
+import com.apsoft.cleanhomechecklist.datasource.models.WrappedTask
 
 
 /**
@@ -10,5 +10,5 @@ import com.apsoft.cleanhomechecklist.datasource.models.Task
  ** APSoft 2017
  */
 interface TasksContractor: Contractor {
-    fun onRequestDataReceived(data: ArrayList<Task>)
+    fun onRequestDataReceived(data: ArrayList<WrappedTask>)
 }

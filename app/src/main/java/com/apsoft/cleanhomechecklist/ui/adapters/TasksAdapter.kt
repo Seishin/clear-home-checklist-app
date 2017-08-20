@@ -9,6 +9,7 @@ import android.widget.TextView
 import butterknife.bindView
 import com.apsoft.cleanhomechecklist.R
 import com.apsoft.cleanhomechecklist.datasource.models.Task
+import com.apsoft.cleanhomechecklist.datasource.models.WrappedTask
 import com.apsoft.cleanhomechecklist.ui.widgets.SmoothCheckBox
 
 
@@ -21,7 +22,7 @@ import com.apsoft.cleanhomechecklist.ui.widgets.SmoothCheckBox
 
 class TasksAdapter(var context: Context): RecyclerView.Adapter<TasksAdapter.ViewHolder>() {
 
-    private val tasksData: ArrayList<Task> = ArrayList<Task>(0)
+    private val tasksData: ArrayList<WrappedTask> = ArrayList<WrappedTask>(0)
 
     override fun getItemCount(): Int {
         return tasksData.size
@@ -29,22 +30,42 @@ class TasksAdapter(var context: Context): RecyclerView.Adapter<TasksAdapter.View
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val task = tasksData[position]
-        holder?.title?.text = task.title
+
+        if (holder is ItemViewHolder) {
+            holder.title.text = task.task?.title
+        } else if (holder is HeaderViewHolder) {
+            holder.title.text = task.header?.title
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
-        return ViewHolder(inflater.inflate(R.layout.layout_task, parent, false))
+
+        if (viewType == 1) {
+            return ItemViewHolder(inflater.inflate(R.layout.layout_task, parent, false))
+        } else {
+            return HeaderViewHolder(inflater.inflate(R.layout.layout_task_header, parent, false))
+        }
     }
 
-    fun setData(data: ArrayList<Task>) {
+    override fun getItemViewType(position: Int): Int {
+        return if (tasksData[position].header != null) 0 else 1
+    }
+
+    fun setData(data: ArrayList<WrappedTask>) {
         this.tasksData.clear()
         this.tasksData.addAll(data)
         notifyDataSetChanged()
     }
 
-    class ViewHolder(var itemView: View): RecyclerView.ViewHolder(itemView) {
+    abstract class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+
+    class ItemViewHolder(itemView: View): ViewHolder(itemView) {
         val checkbox: SmoothCheckBox by bindView(R.id.checkbox)
+        val title: TextView by bindView(R.id.title)
+    }
+
+    class HeaderViewHolder(itemView: View): ViewHolder(itemView) {
         val title: TextView by bindView(R.id.title)
     }
 }

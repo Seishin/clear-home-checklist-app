@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.apsoft.cleanhomechecklist.R
 import com.apsoft.cleanhomechecklist.config.Constants
 import com.apsoft.cleanhomechecklist.datasource.models.Task
+import com.apsoft.cleanhomechecklist.datasource.models.WrappedTask
 import com.apsoft.cleanhomechecklist.di.components.ChecklistPageComponent
 import com.apsoft.cleanhomechecklist.di.modules.ChecklistPageModule
 import com.apsoft.cleanhomechecklist.mvp.views.TasksContractor
@@ -83,9 +84,10 @@ class PageFragment: Fragment(), TasksContractor {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onRequestDataReceived(data: ArrayList<Task>) {
-        val filteredData: List<Task> = data.filter { it.type == arguments.getInt(Constants.PAGES_KEY_TYPE) }
-        tasksAdapter.setData(filteredData as ArrayList<Task>)
+    override fun onRequestDataReceived(data: ArrayList<WrappedTask>) {
+        val filteredData: List<WrappedTask> = data.filter { it.task?.type == arguments.getInt(Constants.PAGES_KEY_TYPE)
+                || it.header != null }
+        tasksAdapter.setData(filteredData as ArrayList<WrappedTask>)
     }
 
     override fun getAppContext(): Context {
