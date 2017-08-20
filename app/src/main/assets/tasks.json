@@ -1,30 +1,327 @@
-[{
+[
+  {
   "title": "Sweep floor",
   "type": 0,
   "room": 0
-},
-{
-  "title": "Wipe down counters",
-  "type": 0,
-  "room": 0
-},
-{
-  "title": "Wipe down stovetop",
-  "type": 0,
-  "room": 0
-},
-{
-  "title": "Empty dishwasher",
-  "type": 0,
-  "room": 0
-},
-{
-  "title": "Load dishwasher",
-  "type": 0,
-  "room": 0
-},
-{
-  "title": "Pick up clutter",
-  "type": 0,
-  "room": 0
-}]
+  },
+  {
+    "title": "Wipe down counters",
+    "type": 0,
+    "room": 0
+  },
+  {
+    "title": "Wipe down stovetop",
+    "type": 0,
+    "room": 0
+  },
+  {
+    "title": "Empty dishwasher",
+    "type": 0,
+    "room": 0
+  },
+  {
+    "title": "Load dishwasher",
+    "type": 0,
+    "room": 0
+  },
+  {
+    "title": "Pick up clutter",
+    "type": 0,
+    "room": 0
+  },
+  {
+    "title": "Tidy the sofa",
+    "type": 0,
+    "room": 1
+  },
+  {
+    "title": "Pick up clutter",
+    "type": 0,
+    "room": 1
+  },
+  {
+    "title": "Pick up crumbs with handheld vacuum",
+    "type": 0,
+    "room": 1
+  },
+  {
+    "title": "Straighten up books & magazines",
+    "type": 0,
+    "room": 1
+  },
+  {
+    "title": "Make the beds",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Fold or hang clothes",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Put away jewelry",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Pick up clutter",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Wipe down counters",
+    "type": 0,
+    "room": 3
+  },
+  {
+    "title": "Wipe out sink",
+    "type": 0,
+    "room": 3
+  },
+  {
+    "title": "One load of laundry",
+    "type": 0,
+    "room": 3
+  },
+  {
+    "title": "Pick up clutter",
+    "type": 0,
+    "room": 3
+  },
+  {
+    "title": "Dust",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Vacuum/Mop",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Wipe down cabinets",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Wipe down appliances (the outside)",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Wipe down inside of microwave",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Wipe down cabinets",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Scrub kitchen sink",
+    "type": 1,
+    "room": 0
+  },
+  {
+    "title": "Dust",
+    "type": 1,
+    "room": 1
+  },
+  {
+    "title": "Vacuum/Mop",
+    "type": 1,
+    "room": 1
+  },
+  {
+    "title": "Clean under couch cushions",
+    "type": 1,
+    "room": 1
+  },
+  {
+    "title": "Remove fingerprints from TV",
+    "type": 1,
+    "room": 1
+  },
+  {
+    "title": "Dust",
+    "type": 2,
+    "room": 1
+  },
+  {
+    "title": "Vacuum/Mop",
+    "type": 2,
+    "room": 1
+  },
+  {
+    "title": "Wash sheets",
+    "type": 2,
+    "room": 1
+  },
+  {
+    "title": "Empty trash cans",
+    "type": 2,
+    "room": 1
+  },
+  {
+    "title": "Dust",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Vacuum/Mop",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Empty trash cans",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Clean mirrors",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Wipe down cabinets",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Clean bathtub(s)",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Clean toilet(s)",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Launder bathroom rugs",
+    "type": 3,
+    "room": 1
+  },
+  {
+    "title": "Dust moldings",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Clear cobwebs from ceilings",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Dust ceiling fans",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Clean blinds & curtains",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Clean inside of refrigerator",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Clean inside of oven",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Wash inside of trash cans",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Wipe down doors",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Sanitize switch plates",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Wipe down baseboards",
+    "type": 0,
+    "room": 2
+  },
+  {
+    "title": "Dust moldings",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Clear cobwebs from ceilings",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Dust ceiling fans",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Clean blinds & curtains",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Wipe down doors",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Sanitize switch plates",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Wipe down baseboards",
+    "type": 1,
+    "room": 2
+  },
+  {
+    "title": "Dust moldings",
+    "type": 2,
+    "room": 2
+  },
+  {
+    "title": "Clear cobwebs from ceilings",
+    "type": 2,
+    "room": 2
+  },
+  {
+    "title": "Clean blinds & curtains",
+    "type": 2,
+    "room": 2
+  },
+  {
+    "title": "Wash inside of trash cans",
+    "type": 2,
+    "room": 2
+  },
+  {
+    "title": "Sanitize switch plates",
+    "type": 2,
+    "room": 2
+  },
+  {
+    "title": "Wipe down baseboards",
+    "type": 2,
+    "room": 2
+  },
+  {
+    "title": "Launder duvet covers & quilts",
+    "type": 2,
+    "room": 2
+  }
+]
